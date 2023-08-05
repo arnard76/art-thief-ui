@@ -39,7 +39,7 @@
                 <p class="mission-statement">
                     You are an art thief... 
                     Your mission is to steal a historic piece of artwork and replace it with a forgery. 
-                    Should you successfully steal the piece of artwork, you will have successfully rewritten history...
+                    Should you succeed in stealing the piece of artwork, you will have successfully rewritten history...
                 </p>
             </Typewriter>
         </div>
@@ -67,6 +67,9 @@
 
     .mission-statement {
         font-size: 33px;
+        color: white;
+        --cursor-width: 8px;
+        --cursor-color: white;
     }
 
     .box-container .box {
