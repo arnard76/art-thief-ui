@@ -1,4 +1,6 @@
 <script>
+  import PictureFrame from "$lib/PictureFrame.svelte";
+  import Button from "$lib/Button.svelte";
   import "./styles.css";
 </script>
 
@@ -7,7 +9,49 @@
   <meta name="description" content="The Art Thief" />
 </svelte:head>
 
-<section />
+<Button>Start</Button>
+<div class="container">
+  <PictureFrame src="lookingAtTargetArt.png" />
+</div>
+<div class="background">
+  <img src="./gameArt/lookingAtTargetArt.png" alt="" srcset="" />
+  <div class="black" />
+</div>
 
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .background {
+    position: fixed;
+    top: 0;
+    background-color: red;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
+    display: flex;
+    justify-content: stretch;
+
+    /* vertical-align: middle; */
+  }
+
+  .background > img {
+    /* width: 100%; */
+    object-fit: cover;
+    /* align-items: center; */
+    /* justify-self: center; */
+    align-self: center;
+  }
+
+  .background > .black {
+    background-color: black;
+    width: 100%;
+  }
 </style>
