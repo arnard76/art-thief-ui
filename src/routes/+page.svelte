@@ -1,10 +1,12 @@
 <script>
     import Typewriter from 'svelte-typewriter';
     import Button from '$lib/Button.svelte';
+    import { afterUpdate } from 'svelte';
     import './styles.css';
 
     let startBtn;
     let showStartBtn = true;
+    let showContinueButton = false;
     let showBox = false;
     let keepCursorOnFinish = true;
     let interval = 75;
@@ -13,6 +15,15 @@
         showBox = true;
         showStartBtn = false;
     };
+    const textLength = 208;
+
+    afterUpdate(() => {
+        if (!showContinueButton) {
+            setTimeout(() => {
+                showContinueButton = true;
+            }, interval * textLength * 1.4); // Adjust the timing according to your needs
+        }
+    });
 </script>
 
 <svelte:head>
@@ -42,6 +53,11 @@
                     Should you succeed in stealing the piece of artwork, you will have successfully rewritten history...
                 </p>
             </Typewriter>
+            {#if showContinueButton}
+                <div class="button-container">
+                    <Button>Continue</Button>
+                </div>
+            {/if}
         </div>
     </div>
 {/if}
@@ -66,7 +82,7 @@
     }
 
     .mission-statement {
-        font-size: 33px;
+        font-size: 32px;
         color: white;
         --cursor-width: 8px;
         --cursor-color: white;
@@ -77,6 +93,7 @@
         height: 600px;
         background-color: rgba(91, 91, 91, 0.718);
         padding: 8px;
+        border-radius: 16px;
     }
 
     .container {
