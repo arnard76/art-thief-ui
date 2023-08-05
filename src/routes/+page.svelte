@@ -21,7 +21,7 @@
         if (!showContinueButton) {
             setTimeout(() => {
                 showContinueButton = true;
-            }, interval * textLength * 1.4); // Adjust the timing according to your needs
+            }, interval * textLength * 1.47);
         }
     });
 </script>
@@ -42,6 +42,8 @@
         <Button>Start</Button>
     </div>
 {/if}
+
+<div class="game-title-container"><h1 class="title">The Art Thief</h1></div>
 
 {#if showBox}
     <div class="box-container">
@@ -72,6 +74,17 @@
         padding: 0;
         box-sizing: border-box;
         font-family: 'Press Start 2P', Helvetica, sans-serif;
+    }
+
+    .game-title-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .title {
+        padding-top: 24px;
     }
 
     .box-container {
