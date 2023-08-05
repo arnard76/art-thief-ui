@@ -1,5 +1,4 @@
 <script>
-  import PictureFrame from "$lib/PictureFrame.svelte";
   import Button from "$lib/Button.svelte";
   import "./styles.css";
 </script>
@@ -11,10 +10,6 @@
 
 <div class="button-container">
   <Button>Start</Button>
-</div>
-
-<div class="container">
-  <PictureFrame src="landingPage.svg" />
 </div>
 
 <div class="background">
