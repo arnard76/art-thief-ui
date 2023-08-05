@@ -9,10 +9,14 @@
   <meta name="description" content="The Art Thief" />
 </svelte:head>
 
-<Button>Start</Button>
+<div class="button-container">
+  <Button>Start</Button>
+</div>
+
 <div class="container">
   <PictureFrame src="lookingAtTargetArt.png" />
 </div>
+
 <div class="background">
   <img src="./gameArt/lookingAtTargetArt.png" alt="" srcset="" />
   <div class="black" />
@@ -27,6 +31,12 @@
 
   .container {
     padding: 20px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
   }
 
   .background {
