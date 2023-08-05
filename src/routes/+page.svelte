@@ -1,6 +1,13 @@
 <script>
   import Button from "$lib/Button.svelte";
   import "./styles.css";
+
+  let startBtn;
+  let showBox = false;
+
+  const handleClick = () => {
+    showBox = true;
+  };
 </script>
 
 <svelte:head>
@@ -8,9 +15,13 @@
   <meta name="description" content="The Art Thief" />
 </svelte:head>
 
-<div class="button-container">
+<div class="button-container" bind:this={startBtn} on:click={handleClick}>
   <Button>Start</Button>
 </div>
+
+{#if showBox}
+  <div class="box"></div>
+{/if}
 
 <div class="background">
   <img src="./gameArt/landingPage.svg" alt="" srcset="" />
@@ -22,6 +33,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  .box {
+    width: 50px;
+    height: 50px;
   }
 
   .container {
