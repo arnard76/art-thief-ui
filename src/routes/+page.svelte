@@ -53,28 +53,24 @@
     padding: 16px 0;
   }
 
-  .background {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: -10;
-    display: flex;
-    justify-content: stretch;
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -10;
+  /* Remove display and justify-content properties */
 
-    /* vertical-align: middle; */
-  }
+  /* Add this to center the image horizontally and vertically */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .background > img {
-    /* width: 100%; */
-    object-fit: cover;
-    /* align-items: center; */
-    /* justify-self: center; */
-    align-self: center;
-  }
-
-  .background > .black {
-    background-color: black;
-    width: 100%;
-  }
+.background > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 </style>
