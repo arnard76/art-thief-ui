@@ -14,11 +14,11 @@
 </div>
 
 <div class="container">
-  <PictureFrame src="lookingAtTargetArt.png" />
+  <PictureFrame src="landingPage.svg" />
 </div>
 
 <div class="background">
-  <img src="./gameArt/lookingAtTargetArt.png" alt="" srcset="" />
+  <img src="./gameArt/landingPage.svg" alt="" srcset="" />
   <div class="black" />
 </div>
 
