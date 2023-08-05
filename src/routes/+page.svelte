@@ -37,8 +37,7 @@
   .background {
     position: fixed;
     top: 0;
-    background-color: red;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     z-index: -10;
     display: flex;
