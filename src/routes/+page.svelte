@@ -20,7 +20,9 @@
 </div>
 
 {#if showBox}
-  <div class="box"></div>
+  <div class="button-container">
+    <div class="box"></div>
+  </div>
 {/if}
 
 <div class="background">
@@ -36,8 +38,9 @@
   }
 
   .box {
-    width: 50px;
-    height: 50px;
+    width: 50%;
+    height: 600px;
+    background-color: rgba(91, 91, 91, 0.718);
   }
 
   .container {
@@ -47,7 +50,7 @@
   .button-container {
     display: flex;
     justify-content: center;
-    padding: 30px 0;
+    padding: 16px 0;
   }
 
   .background {
