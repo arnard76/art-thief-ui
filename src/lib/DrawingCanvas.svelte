@@ -24,7 +24,7 @@
   export let backgroundColor = "#FFF";
   export let hideGrid = false;
   export let canvasWidth = 640;
-  export let canvasHeight = 5123;
+  export let canvasHeight = 512;
   export let disabled = false;
   export let imgSrc = "";
   export let saveData = "";
