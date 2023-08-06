@@ -111,6 +111,7 @@
     overflow-x: scroll;
     white-space: nowrap;
     height: 100vh;
+    background: url("/gallery_2.jpg");
   }
 
   .canvas {
