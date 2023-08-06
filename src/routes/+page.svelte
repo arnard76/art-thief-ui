@@ -111,10 +111,6 @@
         border-radius: 16px;
     }
 
-    .container {
-        padding: 20px;
-    }
-
     .button-container {
         display: flex;
         justify-content: center;
