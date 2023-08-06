@@ -13,6 +13,7 @@
     border-radius: 50px;
     font-size: 24px;
     /* margin-left: 75px; */
+
+    cursor: pointer;
   }
 </style>
-

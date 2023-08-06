@@ -3,6 +3,7 @@
 
     import DrawingCanvas from '$lib/DrawingCanvas.svelte';
     import { onMount } from 'svelte';
+    import Button from '$lib/Button.svelte';
 
     export let drawingCanvas = undefined;
 
@@ -14,6 +15,12 @@
         'scream.webp',
         'van-gough.avif',
     ];
+    let prompt;
+
+    function getSketchedImage() {
+        console.log(drawingCanvas.toDataURL('image/png'));
+        return drawingCanvas.toDataURL('image/png');
+    }
 
     function getAndDisplayFamousPainting() {
         const randomIndex = Math.floor(Math.random() * famousPaintings.length);
@@ -28,11 +35,6 @@
     onMount(() => {
         getAndDisplayFamousPainting();
     });
-
-    function getSketchedImage() {
-        console.log(drawingCanvas.toDataURL('image/png'));
-        return drawingCanvas.toDataURL('image/png');
-    }
 
     async function generateForgery() {
         const imageBlob = await (await fetch(getSketchedImage())).blob();
@@ -77,16 +79,22 @@
                 height={512}
             />
         </div>
-        <button on:click={async () => console.log(await generateForgery())}
-            >Generate</button
+
+        <textarea
+            type="text"
+            name="prompt"
+            placeholder="forgery should include ..."
+            bind:value={prompt}
+        />
+        <Button on:click={async () => console.log(await generateForgery())}
+            >Generate</Button
         >
     </div>
 
-    <!-- Art Forgery (generated image) -->
     <div class="forgery">
         {#if generatedImage}
             <img src={generatedImage} alt="generated art forgery" />
-            <button on:click={() => {}}> Steal </button>
+            <Button on:click={() => {}}>Steal</Button>
         {/if}
     </div>
 </div>
@@ -100,16 +108,26 @@
         height: 100vh;
     }
 
+    .canvas {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
     .canvas,
     .famous-painting-container,
     .forgery {
-        flex-shrink: 0; /* Prevent items from shrinking */
+        flex-shrink: 0;
         width: 640px;
         height: 512px;
         margin-right: 20px;
     }
 
     .forgery {
-        border: 1px solid red;
+        border: 1px solid black;
+    }
+
+    textarea {
+        min-height: 24px;
     }
 </style>
