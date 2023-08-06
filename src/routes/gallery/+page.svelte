@@ -1,19 +1,17 @@
 <script>
+  // @ts-nocheck
+
+  import artworks from "$lib/stolenImages";
   import Painting from "$lib/Painting.svelte";
-  let images = [
-    "/monalisa.jpg",
-    "/scream.jpg",
-    "/starry_night.jpg",
-    "/guernica.jpg",
-  ];
-  images = images.map((image) => `/painting_picture${image}`);
 </script>
 
 <div class="gallery">
-  <Painting src={images[0]} isVertical={true} />
-  <Painting src={images[1]} isVertical={true} />
-  <Painting src={images[2]} isVertical={false} />
-  <Painting src={images[3]} isVertical={false} />
+  {#each $artworks as currentPainting}
+    <Painting
+      src={currentPainting.path}
+      isVertical={currentPainting.vertical}
+    />
+  {/each}
 </div>
 
 <style>
