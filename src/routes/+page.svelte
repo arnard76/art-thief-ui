@@ -22,7 +22,7 @@
     if (!showContinueButton) {
       setTimeout(() => {
         showContinueButton = true;
-      }, interval * textLength * 1.47);
+      }, interval * textLength * 1.5);
     }
   });
 </script>
@@ -51,9 +51,9 @@
     <div class="box">
       <Typewriter {interval} {keepCursorOnFinish}>
         <p class="mission-statement">
-          You are an art thief... Your mission is to steal a historic piece of
-          artwork and replace it with a forgery. Should you succeed in stealing
-          the piece of artwork, you will have successfully rewritten history...
+          You are an art thief... 
+          Your mission is to steal a historic piece of artwork and replace it with a forgery. 
+          Should you succeed in stealing the piece of artwork, you will have successfully rewritten history...
         </p>
       </Typewriter>
       {#if showContinueButton}
