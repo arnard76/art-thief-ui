@@ -86,28 +86,22 @@
     >
   </div>
 
+  <!-- Art Forgery (generated image) -->
   <div class="forgery">
     {#if generatedImage}
       <img src={generatedImage} alt="generated art forgery" />
-      <Button on:click={() => {}}>Steal</Button>
+      <Button
+        on:click={() => {
+          goto("/gallery");
+          currentArtworks.updateArtwork(imageToStealPath, {
+            path: generatedImage,
+            vertical: false,
+          });
+        }}>Steal</Button
+      >
     {/if}
   </div>
 </div>
-
-<!-- Art Forgery (generated image) -->
-
-{#if generatedImage}
-  <img src={generatedImage} alt="generated art forgery" />
-  <Button
-    on:click={() => {
-      goto("/gallery");
-      currentArtworks.updateArtwork(imageToStealPath, {
-        path: generatedImage,
-        vertical: false,
-      });
-    }}>Steal</Button
-  >
-{/if}
 
 <style>
   .container {
