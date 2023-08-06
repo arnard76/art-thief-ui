@@ -53,3 +53,8 @@
 </div>
 
 <!-- Art Forgery (generated image) -->
+
+{#if generatedImage}
+  <img src={generatedImage} alt="generated art forgery" />
+  <button on:click={() => {}}> Steal </button>
+{/if}
