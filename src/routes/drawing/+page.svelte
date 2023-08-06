@@ -5,6 +5,7 @@
   import Button from "$lib/Button.svelte";
   import { goto } from "$app/navigation";
   import currentArtworks, { selectedImage } from "$lib/stolenImages";
+  import { onMount } from "svelte";
 
   export let drawingCanvas = undefined;
 
@@ -100,7 +101,10 @@
   <Button
     on:click={() => {
       goto("/gallery");
-      currentArtworks.updateArtwork(imageToStealPath, {path: generatedImage, vertical: false});
+      currentArtworks.updateArtwork(imageToStealPath, {
+        path: generatedImage,
+        vertical: false,
+      });
     }}>Steal</Button
   >
 {/if}
