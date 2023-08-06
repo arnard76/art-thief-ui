@@ -1,4 +1,5 @@
 <script>
+  import Painting from "$lib/Painting.svelte";
   let images = [
     "/monalisa.jpg",
     "/scream.jpg",
@@ -6,7 +7,6 @@
     "/guernica.jpg",
   ];
   images = images.map((image) => `/painting_picture${image}`);
-  import Painting from "$lib/Painting.svelte";
 </script>
 
 <div class="gallery">
@@ -14,7 +14,6 @@
   <Painting src={images[1]} isVertical={true} />
   <Painting src={images[2]} isVertical={false} />
   <Painting src={images[3]} isVertical={false} />
-
 </div>
 
 <style>
