@@ -85,6 +85,7 @@
 
     .title {
         padding-top: 24px;
+        color: black;
     }
 
     .box-container {
