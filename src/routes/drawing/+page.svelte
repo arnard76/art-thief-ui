@@ -130,6 +130,12 @@
 
   .forgery {
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .forgery > img {
+    margin-bottom: 0.9em;
   }
 
   textarea {
