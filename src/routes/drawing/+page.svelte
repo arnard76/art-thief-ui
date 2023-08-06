@@ -43,10 +43,13 @@
 <!-- Art being stolen 🖼️ -->
 
 <!-- Initial Sketch -->
-<DrawingCanvas bind:canvas={drawingCanvas} width={640} height={512} />
-<img src={generatedImage} alt="generated art forgery" />
-<button on:click={async () => console.log(await generateForgery())}
-  >Generate image</button
->
+<div style="display: flex; flex-direction: column; max-width: 25%;">
+  <div>
+    <DrawingCanvas bind:canvas={drawingCanvas} width={640} height={512} />
+  </div>
+  <button on:click={async () => console.log(await generateForgery())}
+    >Generate</button
+  >
+</div>
 
 <!-- Art Forgery (generated image) -->
