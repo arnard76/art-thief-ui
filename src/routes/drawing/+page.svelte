@@ -2,6 +2,7 @@
   // @ts-nocheck
 
   import DrawingCanvas from "$lib/DrawingCanvas.svelte";
+  import Button from "$lib/Button.svelte";
 
   export let drawingCanvas = undefined;
 
@@ -47,8 +48,8 @@
   <div>
     <DrawingCanvas bind:canvas={drawingCanvas} width={640} height={512} />
   </div>
-  <button on:click={async () => console.log(await generateForgery())}
-    >Generate</button
+  <Button on:click={async () => console.log(await generateForgery())}
+    >Generate</Button
   >
 </div>
 
@@ -56,5 +57,5 @@
 
 {#if generatedImage}
   <img src={generatedImage} alt="generated art forgery" />
-  <button on:click={() => {}}> Steal </button>
+  <Button on:click={() => {}}>Steal</Button>
 {/if}
