@@ -94,6 +94,7 @@
 <style>
     .container {
         display: flex;
+        align-items: center;
         overflow-x: scroll;
         white-space: nowrap;
         height: 100vh;
