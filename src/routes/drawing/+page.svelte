@@ -8,6 +8,8 @@
 
   let generatedImage;
 
+  let prompt;
+
   function getSketchedImage() {
     console.log(drawingCanvas.toDataURL("image/png"));
     return drawingCanvas.toDataURL("image/png");
@@ -23,7 +25,7 @@
     const res = await fetch(
       "http://localhost:3001/?" +
         new URLSearchParams({
-          prompt: "hello",
+          prompt,
         }),
       {
         method: "POST",
@@ -48,6 +50,13 @@
   <div>
     <DrawingCanvas bind:canvas={drawingCanvas} width={640} height={512} />
   </div>
+
+  <input
+    type="text"
+    name="prompt"
+    placeholder="forgery should include ..."
+    bind:value={prompt}
+  />
   <Button on:click={async () => console.log(await generateForgery())}
     >Generate</Button
   >
@@ -59,3 +68,13 @@
   <img src={generatedImage} alt="generated art forgery" />
   <Button on:click={() => {}}>Steal</Button>
 {/if}
+
+<style>
+  * {
+    font-size: 0.5em;
+  }
+
+  input {
+    margin: 0.5em 0;
+  }
+</style>
