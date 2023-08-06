@@ -1,10 +1,11 @@
 <script>
   // @ts-nocheck
 
-  import artworks from "$lib/stolenImages";
-  import currentArtworks, {selectedImage} from "$lib/stolenImages";
+  import artworks, { selectedImage } from "$lib/stolenImages";
   import Painting from "$lib/Painting.svelte";
   import { goto } from "$app/navigation";
+
+  $: console.log($artworks);
 </script>
 
 <div class="gallery">
@@ -14,7 +15,8 @@
       isVertical={currentPainting.vertical}
       on:click={() => {
         selectedImage.set(currentPainting.path);
-        goto('/drawing');
+        console.log($selectedImage);
+        goto("/drawing");
       }}
     />
   {/each}

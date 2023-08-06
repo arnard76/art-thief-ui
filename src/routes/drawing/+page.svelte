@@ -5,36 +5,30 @@
   import Button from "$lib/Button.svelte";
   import { goto } from "$app/navigation";
   import currentArtworks, { selectedImage } from "$lib/stolenImages";
-  import { onMount } from "svelte";
+  //   import { onMount } from "svelte";
 
   export let drawingCanvas = undefined;
 
   let generatedImage;
   const imageToStealPath = $selectedImage;
 
-  const famousPaintings = [
-    "monalisa.jpg",
-    "starry_night.jpg",
-    "scream.webp",
-    "van-gough.avif",
-  ];
   let prompt;
 
   function getSketchedImage() {
     return drawingCanvas.toDataURL("image/png");
   }
 
-  function getAndDisplayFamousPainting() {
-    const randomIndex = Math.floor(Math.random() * famousPaintings.length);
-    const randomPaintingURL = famousPaintings[randomIndex];
+  //   function getAndDisplayFamousPainting() {
+  //     const randomIndex = Math.floor(Math.random() * famousPaintings.length);
+  //     const randomPaintingURL = famousPaintings[randomIndex];
 
-    const famousPaintingImg = document.querySelector(".famous-painting-image");
-    famousPaintingImg.src = `/painting-pictures/${randomPaintingURL}`;
-  }
+  //     const famousPaintingImg = document.querySelector(".famous-painting-image");
+  //     famousPaintingImg.src = `/painting-pictures/${randomPaintingURL}`;
+  //   }
 
-  onMount(() => {
-    getAndDisplayFamousPainting();
-  });
+  //   onMount(() => {
+  //     getAndDisplayFamousPainting();
+  //   });
 
   async function generateForgery() {
     const imageBlob = await (await fetch(getSketchedImage())).blob();
@@ -65,9 +59,16 @@
 
 <div class="container">
   <!-- Art being stolen 🖼️ -->
-  <div class="famous-painting-container">
-    <img class="famous-painting-image" width="640px" height="512px" />
-  </div>
+  {#if $selectedImage}
+    <div class="famous-painting-container">
+      <img
+        class="famous-painting-image"
+        width="640px"
+        height="512px"
+        src={$selectedImage}
+      />
+    </div>
+  {/if}
 
   <!-- Initial Sketch -->
   <div class="canvas">
