@@ -3,7 +3,7 @@
   export let src = '';
 </script>
 
-<div class={isVertical ? 'frame' : 'frame-vert'}>
+<div on:click class={isVertical ? 'frame' : 'frame-vert'}>
   <img
     class="artwork"
     src={src}
@@ -29,5 +29,6 @@
   .artwork {
     max-height: 512px;
     max-width: 640px;
+    cursor: pointer;
   }
 </style>
