@@ -8,7 +8,12 @@
 
     let generatedImage;
 
-    const famousPaintings = ['monalisa.jpg', 'starry_night.jpg', 'scream.webp', 'van-gough.avif'];
+    const famousPaintings = [
+        'monalisa.jpg',
+        'starry_night.jpg',
+        'scream.webp',
+        'van-gough.avif',
+    ];
 
     function getAndDisplayFamousPainting() {
         const randomIndex = Math.floor(Math.random() * famousPaintings.length);
@@ -57,27 +62,53 @@
     }
 </script>
 
-<!-- Art being stolen 🖼️ -->
-<div class="famous-painting-container">
-    <img
-        class="famous-painting-image"
-        src="./painting-pictures/monalisa.jpg"
-        width="300px"
-    />
-</div>
-<!-- Initial Sketch -->
-<div style="display: flex; flex-direction: column; max-width: 25%;">
-    <div>
-        <DrawingCanvas bind:canvas={drawingCanvas} width={640} height={512} />
+<div class="container">
+    <!-- Art being stolen 🖼️ -->
+    <div class="famous-painting-container">
+        <img class="famous-painting-image" width="640px" height="512px" />
     </div>
-    <button on:click={async () => console.log(await generateForgery())}
-        >Generate</button
-    >
+
+    <!-- Initial Sketch -->
+    <div class="canvas">
+        <div>
+            <DrawingCanvas
+                bind:canvas={drawingCanvas}
+                width={640}
+                height={512}
+            />
+        </div>
+        <button on:click={async () => console.log(await generateForgery())}
+            >Generate</button
+        >
+    </div>
+
+    <!-- Art Forgery (generated image) -->
+    <div class="forgery">
+        {#if generatedImage}
+            <img src={generatedImage} alt="generated art forgery" />
+            <button on:click={() => {}}> Steal </button>
+        {/if}
+    </div>
 </div>
 
-<!-- Art Forgery (generated image) -->
+<style>
+    .container {
+        display: flex;
+        overflow-x: scroll;
+        white-space: nowrap;
+        height: 100vh;
+    }
 
-{#if generatedImage}
-    <img src={generatedImage} alt="generated art forgery" />
-    <button on:click={() => {}}> Steal </button>
-{/if}
+    .canvas,
+    .famous-painting-container,
+    .forgery {
+        flex-shrink: 0; /* Prevent items from shrinking */
+        width: 640px;
+        height: 512px;
+        margin-right: 20px;
+    }
+
+    .forgery {
+        border: 1px solid red;
+    }
+</style>
