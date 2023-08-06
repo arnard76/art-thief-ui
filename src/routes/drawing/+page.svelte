@@ -51,7 +51,7 @@
     <DrawingCanvas bind:canvas={drawingCanvas} width={640} height={512} />
   </div>
 
-  <input
+  <textarea
     type="text"
     name="prompt"
     placeholder="forgery should include ..."
@@ -74,7 +74,7 @@
     font-size: 0.5em;
   }
 
-  input {
+  textarea {
     margin: 0.5em 0;
   }
 </style>
