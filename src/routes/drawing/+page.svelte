@@ -36,11 +36,11 @@
     const imageFile = new File([imageBlob], "sketch.png", {
       type: imageBlob.type,
     });
-
+    console.log(prompt);
     const res = await fetch(
       "http://localhost:3001/?" +
         new URLSearchParams({
-          prompt: "hello",
+          prompt,
         }),
       {
         method: "POST",
