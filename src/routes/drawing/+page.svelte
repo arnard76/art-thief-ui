@@ -3,6 +3,7 @@
 
   import DrawingCanvas from "$lib/DrawingCanvas.svelte";
   import Button from "$lib/Button.svelte";
+  import { goto } from "$app/navigation";
 
   export let drawingCanvas = undefined;
 
@@ -66,7 +67,11 @@
 
 {#if generatedImage}
   <img src={generatedImage} alt="generated art forgery" />
-  <Button on:click={() => {}}>Steal</Button>
+  <Button
+    on:click={() => {
+      goto("/gallery");
+    }}>Steal</Button
+  >
 {/if}
 
 <style>
