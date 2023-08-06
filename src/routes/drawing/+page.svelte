@@ -4,10 +4,12 @@
   import DrawingCanvas from "$lib/DrawingCanvas.svelte";
   import Button from "$lib/Button.svelte";
   import { goto } from "$app/navigation";
+  import currentArtworks from "$lib/stolenImages";
 
   export let drawingCanvas = undefined;
 
   let generatedImage;
+  let imageToStealPath;
 
   let prompt;
 
@@ -70,6 +72,7 @@
   <Button
     on:click={() => {
       goto("/gallery");
+      currentArtworks.updateArtwork(imageToStealPath, {path: generatedImage, vertical: false});
     }}>Steal</Button
   >
 {/if}
