@@ -6,45 +6,18 @@
     "/guernica.jpg",
   ];
   images = images.map((image) => `/painting_picture${image}`);
-
-  let imageHeights = Array(images.length);
-  let imageWidths = Array(images.length);
+  import Painting from "$lib/Painting.svelte";
 </script>
 
 <div class="gallery">
-  {#each images as image, i}
-    <div class={imageWidths[i] > imageHeights[i] ? 'frame' : 'frame-vert'}>
-      <img
-        bind:naturalHeight={imageHeights[i]}
-        bind:naturalWidth={imageWidths[i]}
-        class="artwork"
-        src={image}
-        alt="artwork"
-      />
-    </div>
-  {/each}
+  <Painting src={images[0]} isVertical={true} />
+  <Painting src={images[1]} isVertical={true} />
+  <Painting src={images[2]} isVertical={false} />
+  <Painting src={images[3]} isVertical={false} />
+
 </div>
 
 <style>
-  .frame {
-    background-image: url("/frame.jpg");
-    background-size: cover;
-    background-position: center;
-    padding: 50px;
-  }
-
-  .frame-vert {
-    background-image: url("/frame.jpg");
-    background-size: cover;
-    background-position: center;
-    padding: 50px;
-  }
-
-  .artwork {
-    max-height: 512px;
-    max-width: 640px;
-  }
-
   .gallery {
     background-image: url("/gallery_2.jpg");
     background-size: cover;
