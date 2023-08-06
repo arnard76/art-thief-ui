@@ -2,14 +2,20 @@
   // @ts-nocheck
 
   import artworks from "$lib/stolenImages";
+  import currentArtworks, {selectedImage} from "$lib/stolenImages";
   import Painting from "$lib/Painting.svelte";
+  import { goto } from "$app/navigation";
 </script>
 
 <div class="gallery">
-  {#each $artworks as currentPainting}
+  {#each $artworks as currentPainting (currentPainting.id)}
     <Painting
       src={currentPainting.path}
       isVertical={currentPainting.vertical}
+      on:click={() => {
+        selectedImage.set(currentPainting.path);
+        goto('/drawing');
+      }}
     />
   {/each}
 </div>

@@ -4,12 +4,12 @@
   import DrawingCanvas from "$lib/DrawingCanvas.svelte";
   import Button from "$lib/Button.svelte";
   import { goto } from "$app/navigation";
-  import currentArtworks from "$lib/stolenImages";
+  import currentArtworks, { selectedImage } from "$lib/stolenImages";
 
   export let drawingCanvas = undefined;
 
   let generatedImage;
-  let imageToStealPath;
+  const imageToStealPath = $selectedImage;
 
   const famousPaintings = [
     "monalisa.jpg",
@@ -20,7 +20,6 @@
   let prompt;
 
   function getSketchedImage() {
-    console.log(drawingCanvas.toDataURL("image/png"));
     return drawingCanvas.toDataURL("image/png");
   }
 
@@ -58,7 +57,6 @@
     );
     const imageData = await res.blob();
     generatedImage = URL.createObjectURL(imageData);
-    console.log(generatedImage);
 
     console.log("Image uploaded successfully!");
   }
